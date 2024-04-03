@@ -56,7 +56,7 @@ public class PlatsRepositoryMariadb implements PlatsRepositoryInterface, Closeab
             {
                 String title = result.getString("title");
                 Integer prix = Integer.valueOf(result.getString("prix"));
-                String description = result.getString("description");
+                String description = result.getString("descripton");
 
                 // création et initialisation de l'objet Plats
                 selectedPlats = new Plats(reference, title, prix, description);
@@ -86,7 +86,7 @@ public class PlatsRepositoryMariadb implements PlatsRepositoryInterface, Closeab
                 String reference = result.getString("reference");
                 String title = result.getString("title");
                 Integer prix = Integer.valueOf(result.getString("prix"));
-                String description = result.getString("description");
+                String description = result.getString("descripton");
 
                 // création du plat courant
                 Plats currentPlats = new Plats(reference, title, prix, description);
@@ -94,6 +94,7 @@ public class PlatsRepositoryMariadb implements PlatsRepositoryInterface, Closeab
                 listPlats.add(currentPlats);
             }
         } catch (SQLException e) {
+            System.out.println("probleme 1");
             throw new RuntimeException(e);
         }
         return listPlats;
@@ -101,7 +102,7 @@ public class PlatsRepositoryMariadb implements PlatsRepositoryInterface, Closeab
 
     @Override
     public boolean updatePlat(String reference, String title, Integer prix,String description) {
-        String query = "UPDATE Plats SET title=?, prix=?, description=?  where reference=?";
+        String query = "UPDATE Plats SET title=?, prix=?, descripton=?  where reference=?";
         int nbRowModified = 0;
 
         // construction et exécution d'une requête préparée
