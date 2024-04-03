@@ -5,21 +5,20 @@ import java.sql.*;
 import java.util.ArrayList;
 
 /**
- * Classe permettant d'accèder aux plats stockés dans une base de données Mariadb
+ * Classe pour accéder aux plats stockés dans une base de données MariaDB.
  */
 public class PlatsRepositoryMariadb implements PlatsRepositoryInterface, Closeable {
 
     /**
-     * Accès à la base de données (session)
+     * Connexion à la base de données (session).
      */
     protected Connection dbConnection ;
 
     /**
-     * Constructeur de la classe
-     * @param infoConnection chaîne de caractères avec les informations de connexion
-     *                       (p.ex. jdbc:mariadb://mysql-[compte].alwaysdata.net/[compte]_library_db
-     * @param user chaîne de caractères contenant l'identifiant de connexion à la base de données
-     * @param pwd chaîne de caractères contenant le mot de passe à utiliser
+     * Constructeur de la classe.
+     * @param infoConnection Chaîne de caractères avec les informations de connexion.
+     * @param user Identifiant de connexion à la base de données.
+     * @param pwd Mot de passe à utiliser.
      */
     public PlatsRepositoryMariadb(String infoConnection, String user, String pwd ) throws SQLException, ClassNotFoundException {
         Class.forName("org.mariadb.jdbc.Driver");

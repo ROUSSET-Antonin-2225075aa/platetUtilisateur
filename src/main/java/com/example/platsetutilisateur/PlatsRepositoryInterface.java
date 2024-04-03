@@ -3,35 +3,35 @@ package com.example.platsetutilisateur;
 import java.util.ArrayList;
 
 /**
- * Interface d'accès aux données des plats
+ * Interface pour l'accès aux données des plats.
  */
 public interface PlatsRepositoryInterface {
 
     /**
-     *  Méthode fermant le dépôt où sont stockées les informations sur les plats
+     * Méthode pour fermer le dépôt où sont stockées les informations sur les plats.
      */
     public void close();
 
     /**
-     * Méthode retournant le plat dont la référence est passée en paramètre
-     * @param reference identifiant du plat recherché
-     * @return un objet Plats représentant le plat recherché
+     * Méthode retournant le plat dont la référence est passée en paramètre.
+     * @param reference L'identifiant du plat recherché.
+     * @return Un objet Plats représentant le plat recherché.
      */
     public Plats getPlat(String reference );
 
     /**
-     * Méthode retournant la liste des plats
-     * @return une liste d'objets plats
+     * Méthode retournant la liste de tous les plats.
+     * @return Une liste d'objets plats.
      */
     public ArrayList<Plats> getAllPlats() ;
 
     /**
-     * Méthode permettant de mettre à jours un plat enregistré
-     * @param reference identifiant du plat à mettre à jours
-     * @param title nouveau titre du plat
-     * @param prix nouvelle liste d'auteurs
-     * @param description nouveau status du plat
-     * @return true si le plat existe et la mise à jours a été faite, false sinon
+     * Méthode pour mettre à jour un plat enregistré.
+     * @param reference L'identifiant du plat à mettre à jour.
+     * @param title Le nouveau titre du plat.
+     * @param prix Le nouveau prix du plat.
+     * @param description La nouvelle description du plat.
+     * @return True si le plat existe et la mise à jour a été faite, false sinon.
      */
     public boolean updatePlat(String reference, String title, Integer prix,String description);
 }

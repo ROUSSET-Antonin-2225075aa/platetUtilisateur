@@ -29,10 +29,11 @@ public class Plats {
     }
 
     /**
-     * Constructeur de plats
-     * @param reference référence du plats
-     * @param title titre du plats
-     * @param prix auteurs du plats
+     * Constructeur de plat.
+     * @param reference Référence du plat.
+     * @param title Titre du plat.
+     * @param prix Prix du plat.
+     * @param descripton Description du plat.
      */
     public Plats(String reference, String title, Integer prix, String descripton){
         this.reference = reference;
@@ -42,48 +43,48 @@ public class Plats {
     }
 
     /**
-     * Méthode permettant d'accéder à la réference du plats
-     * @return un chaîne de caractères avec la référence du plats
+     * Méthode permettant d'obtenir la référence du plat.
+     * @return La référence du plat.
      */
     public String getReference() {
         return reference;
     }
 
     /**
-     * Méthode permettant d'accéder au titre du plats
-     * @return un chaîne de caractères avec le titre du plats
+     * Méthode permettant d'obtenir le titre du plat.
+     * @return Le titre du plat.
      */
     public String getTitle() {
         return title;
     }
 
     /**
-     * Méthode permettant d'accéder aux auteurs du plats
-     * @return un chaîne de caractères avec la liste des auteurs
+     * Méthode permettant d'obtenir le prix du plat.
+     * @return Le prix du plat.
      */
     public Integer getPrix() {
         return prix;
     }
 
     /**
-     * Méthode permettant de modifier la référence du plats
-     * @param reference une chaîne de caractères avec la référence à utiliser
+     * Méthode permettant de modifier la référence du plat.
+     * @param reference La nouvelle référence du plat.
      */
     public void setReference(String reference) {
         this.reference = reference;
     }
 
     /**
-     * Méthode permettant de modifier le titre du plats
-     * @param title une chaîne de caractères avec le titre à utiliser
+     * Méthode permettant de modifier le titre du plat.
+     * @param title Le nouveau titre du plat.
      */
     public void setTitle(String title) {
         this.title = title;
     }
 
     /**
-     * Méthode permettant de modifier les autheurs du plats
-     * @param prix une chaîne de caractères avec la liste des auteurs
+     * Méthode permettant de modifier le prix du plat.
+     * @param prix Le nouveau prix du plat.
      */
     public void setPrix(Integer prix) {
         this.prix = prix;
