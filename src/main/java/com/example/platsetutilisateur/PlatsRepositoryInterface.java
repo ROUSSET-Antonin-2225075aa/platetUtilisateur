@@ -15,7 +15,7 @@ public interface PlatsRepositoryInterface {
     /**
      * Méthode retournant le plat dont la référence est passée en paramètre.
      * @param reference L'identifiant du plat recherché.
-     * @return Un objet Plats représentant le plat recherché.
+     * @return Un objet Utilisateur représentant le plat recherché.
      */
     public Plats getPlat(String reference );
 

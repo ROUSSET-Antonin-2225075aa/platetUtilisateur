@@ -71,7 +71,7 @@ public class PlatsResource {
      * Endpoint permettant de mettre à jours le statut d'un plat uniquement
      * (la requête patch doit fournir le nouveau statut sur plat, les autres informations sont ignorées)
      * @param reference la référence du plat dont il faut changer le statut
-     * @param plats le plat transmis en HTTP au format JSON et convertit en objet Plats
+     * @param plats le plat transmis en HTTP au format JSON et convertit en objet Utilisateur
      * @return une réponse "updated" si la mise à jour a été effectuée, une erreur NotFound sinon
      */
     @PUT

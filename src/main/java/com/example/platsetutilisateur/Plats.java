@@ -92,7 +92,7 @@ public class Plats {
 
     @Override
     public String toString() {
-        return "Plats{" +
+        return "Utilisateur{" +
                 "reference='" + reference + '\'' +
                 ", titre='" + title + '\'' +
                 ", auteurs='" + prix + '\'' +

@@ -57,7 +57,7 @@ public class PlatsRepositoryMariadb implements PlatsRepositoryInterface, Closeab
                 Integer prix = Integer.valueOf(result.getString("prix"));
                 String description = result.getString("descripton");
 
-                // création et initialisation de l'objet Plats
+                // création et initialisation de l'objet Utilisateur
                 selectedPlats = new Plats(reference, title, prix, description);
             }
         } catch (SQLException e) {
@@ -108,7 +108,7 @@ public class PlatsRepositoryMariadb implements PlatsRepositoryInterface, Closeab
         try ( PreparedStatement ps = dbConnection.prepareStatement(query) ){
             ps.setString(1, title);
             ps.setString(2, String.valueOf(prix));
-            ps.setString(4, reference);
+            ps.setString(3, reference);
             ps.setString(4, description);
 
             // exécution de la requête

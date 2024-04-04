@@ -15,7 +15,7 @@ public class PlatsApplication extends Application {
 
     /**
      * Méthode appelée par l'API CDI pour injecter la connexion à la base de données au moment de la création de la ressource.
-     * @return Un objet implémentant l'interface PlatsRepositoryInterface utilisée pour accéder aux données des plats et les modifier.
+     * @return Un objet implémentant l'interface UtilisateurRepositoryInterface utilisée pour accéder aux données des plats et les modifier.
      */
     @Produces
     private PlatsRepositoryInterface openDbConnection(){
