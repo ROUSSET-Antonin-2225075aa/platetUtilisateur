@@ -40,7 +40,7 @@ public class UtilisateurRepositoryMariadb implements UtilisateurRepositoryInterf
 
         Utilisateur selectedUtilisateur = null;
 
-        String query = "SELECT * FROM Utilisateurs WHERE idUtilisateur=?";
+        String query = "SELECT * FROM Utilisateurs WHERE pseudo=?";
 
         // construction et exécution d'une requête préparée
         try ( PreparedStatement ps = dbConnection.prepareStatement(query) ){
@@ -53,11 +53,12 @@ public class UtilisateurRepositoryMariadb implements UtilisateurRepositoryInterf
             // (si la référence du utilisateur est valide)
             if( result.next() )
             {
+                String pseudo = result.getString("pseudo");
                 String nom = result.getString("nom");
                 String mdp = result.getString("mdp");
 
                 // création et initialisation de l'objet Utilisateur
-                selectedUtilisateur = new Utilisateur(idUtilisateur, nom, mdp);
+                selectedUtilisateur = new Utilisateur(pseudo, nom, mdp);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
@@ -81,12 +82,12 @@ public class UtilisateurRepositoryMariadb implements UtilisateurRepositoryInterf
             // récupération du premier (et seul) tuple résultat
             while ( result.next() )
             {
-                String idUtilisateur = result.getString("idUtilisateur");
+                String pseudo = result.getString("pseudo");
                 String nom = result.getString("nom");
                 String mdp = result.getString("mdp");
 
                 // création du utilisateur courant
-                Utilisateur currentUtilisateur = new Utilisateur(idUtilisateur, nom, mdp);
+                Utilisateur currentUtilisateur = new Utilisateur(pseudo, nom, mdp);
 
                 listUtilisateurs.add(currentUtilisateur);
             }
@@ -97,15 +98,15 @@ public class UtilisateurRepositoryMariadb implements UtilisateurRepositoryInterf
     }
 
     @Override
-    public boolean updateUtilisateur(String idUtilisateur, String nom, String mdp) {
-        String query = "UPDATE Utilisateurs SET nom=?, mdp=?  where idUtilisateur=?";
+    public boolean updateUtilisateur(String pseudo, String nom, String mdp) {
+        String query = "UPDATE Utilisateurs SET nom=?, mdp=?  where pseudo=?";
         int nbRowModified = 0;
 
         // construction et exécution d'une requête préparée
         try ( PreparedStatement ps = dbConnection.prepareStatement(query) ){
             ps.setString(1, nom);
             ps.setString(2, mdp);
-            ps.setString(3, idUtilisateur);
+            ps.setString(3, pseudo);
 
             // exécution de la requête
             nbRowModified = ps.executeUpdate();
@@ -115,4 +116,28 @@ public class UtilisateurRepositoryMariadb implements UtilisateurRepositoryInterf
 
         return ( nbRowModified != 0 );
     }
+    /**
+     * Méthode permettant d'ajouter un utilisateur dans le dépôt
+     * @param nom nom de l'utilisateur
+     * @param pseudo pseudo de l'utilisateur
+     * @param password mot de passe de l'utilisateur
+     */
+    @Override
+    public void addUtilisateur(String nom, String pseudo, String password) {
+        String query = "INSERT INTO Utilisateur (pseudo, nom, password) VALUES ( ?, ?, ?)";
+
+        // construction et exécution d'une requête préparée
+        try ( PreparedStatement ps = dbConnection.prepareStatement(query) ) {
+            ps.setString(1, pseudo);
+            ps.setString(2, nom);
+            ps.setString(3, password);
+
+            // exécution de la requête
+            ps.executeUpdate();
+        }
+        catch(SQLException e){
+            throw new RuntimeException(e);
+        }
+    }
+
 }

@@ -8,7 +8,7 @@ public class Utilisateur {
     /**
      * Référence du utilisateurs
      */
-    protected String idUtilisateur;
+    protected String pseudo;
 
     /**
      * titre du utilisateurs
@@ -25,11 +25,11 @@ public class Utilisateur {
 
     /**
      * Constructeur de utilisateur.
-     * @param idUtilisateur Référence du utilisateur.
+     * @param pseudo Référence du utilisateur.
      * @param mdp Description du utilisateur.
      */
-    public Utilisateur(String idUtilisateur, String nom, String mdp){
-        this.idUtilisateur = idUtilisateur;
+    public Utilisateur(String pseudo, String nom, String mdp){
+        this.pseudo = pseudo;
         this.nom = nom;
         this.mdp = mdp;
     }
@@ -38,8 +38,8 @@ public class Utilisateur {
      * Méthode permettant d'obtenir la référence du utilisateur.
      * @return La référence du utilisateur.
      */
-    public String getIdUtilisateur() {
-        return idUtilisateur;
+    public String getPseudo() {
+        return pseudo;
     }
 
     /**
@@ -52,10 +52,10 @@ public class Utilisateur {
 
     /**
      * Méthode permettant de modifier la référence du utilisateur.
-     * @param idUtilisateur La nouvelle référence du utilisateur.
+     * @param pseudo La nouvelle référence du utilisateur.
      */
-    public void setIdUtilisateur(String idUtilisateur) {
-        this.idUtilisateur = idUtilisateur;
+    public void setPseudo(String pseudo) {
+        this.pseudo = pseudo;
     }
 
     /**
@@ -66,10 +66,18 @@ public class Utilisateur {
         this.nom = nom;
     }
 
+    /**
+     * Méthode permettant d'accéder au mot de passe de l'utilisateur
+     * @return un chaîne de caractères avec le mot de passe de l'utilisateur
+     */
+    public String getPassword() {
+        return mdp;
+    }
+
     @Override
     public String toString() {
         return "Utilisateur{" +
-                "reference='" + idUtilisateur + '\'' +
+                "reference='" + pseudo + '\'' +
                 ", titre='" + nom + '\'' +
                 '}';
     }

@@ -22,20 +22,20 @@ public class UtilisateurAuthentificationService {
 
     /**
      * Méthode d'authentifier un utilisateur
-     * @param pseudo pseudo de l'utilisateur
-     * @param password mot de passe de l'utilisateur
+     * @param nom nom de l'utilisateur
+     * @param mdp mot de passe de l'utilisateur
      * @return true si l'utilisateur a été authentifié, false sinon
      */
-    public boolean isValidUtilisateur( String pseudo, String password){
+    public boolean isValidUtilisateur( String nom, String mdp){
 
-        Utilisateur currentUtilisateur = utilisateurRepo.getUtilisateur(pseudo);
+        Utilisateur currentUtilisateur = utilisateurRepo.getUtilisateur(nom);
 
         // si l'utilisateur n'a pas été trouvé
         if( currentUtilisateur == null )
             return false;
 
         // si le mot de passe n'est pas correcte
-        if( ! currentUtilisateur.getPassword().equals(password) )
+        if( ! currentUtilisateur.getPassword().equals(mdp) )
             return false;
 
         return true;

@@ -33,4 +33,11 @@ public interface UtilisateurRepositoryInterface {
      * @return True si le utilisateurs existe et la mise à jour a été faite, false sinon.
      */
     public boolean updateUtilisateur(String idUtilisateur, String nom,String mdp);
+    /**
+     * Méthode permettant d'ajouter un utilisateur dans le dépôt
+     * @param nom nom de l'utilisateur
+     * @param pseudo pseudo de l'utilisateur
+     * @param password mot de passe de l'utilisateur
+     */
+    public void addUtilisateur(String nom, String pseudo, String password);
 }
