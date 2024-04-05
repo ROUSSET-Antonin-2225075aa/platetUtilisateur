@@ -46,7 +46,7 @@ public class UtilisateurInscriptionRessource {
     public Response register(@FormParam("nom") String nom,
                              @FormParam("pseudo") String pseudo,
                              @FormParam("password") String password) {
-        if (inscriptionService.inscrireUtilisateur(nom, pseudo, password))
+        if (inscriptionService.inscrireUtilisateur(pseudo, nom, password))
             return Response.status(Response.Status.CREATED).build();
         else
             return Response.status(Response.Status.CONFLICT).build();

@@ -39,5 +39,5 @@ public interface UtilisateurRepositoryInterface {
      * @param pseudo pseudo de l'utilisateur
      * @param password mot de passe de l'utilisateur
      */
-    public void addUtilisateur(String nom, String pseudo, String password);
+    public void addUtilisateur(String pseudo, String nom, String password);
 }

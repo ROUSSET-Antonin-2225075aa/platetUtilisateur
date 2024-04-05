@@ -32,7 +32,7 @@ public class UtilisateurInscriptionService {
                 return false;
 
             // sinon on l'ajoute
-            utilisateurRepo.addUtilisateur(nom, pseudo, password);
+            utilisateurRepo.addUtilisateur(pseudo, nom, password);
             return true;
         }
 }
